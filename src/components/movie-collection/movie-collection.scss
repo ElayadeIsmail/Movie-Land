@@ -1,0 +1,30 @@
+$primary-color:#364f6b;
+$secondary-color:#43dde6;
+$info-color:#f3f169;
+$light-color:#f0f0f0;
+
+.collection-movies {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  &-title {
+    font-family: 'Mada', sans-serif;
+    font-style: italic;
+    color: $info-color;
+    font-size: 2rem;
+    text-align: center;
+    margin: 20px auto;
+
+  }
+
+  &-items {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+
+    &>* {
+      margin: 10px;
+    }
+  }
+}

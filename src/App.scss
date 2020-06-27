@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Mada:wght@400;500;600&family=Roboto:ital,wght@0,400;0,500;1,400&display=swap');
+
+$primary-color:#364f6b;
+$secondary-color:#43dde6;
+$info-color:#fc5185;
+$light-color:#f0f0f0;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: $primary-color;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.5;
+}
