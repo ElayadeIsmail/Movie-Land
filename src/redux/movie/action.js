@@ -4,6 +4,8 @@ import {
   GET_UPCOMING_MOVIES,
   GET_TOP_RATED_MOVIES,
   GET_MOVIE,
+  GET_SEARCH_MOVIE,
+  GET_CREDITS,
 } from "./types";
 import axois from "axios";
 // most Popular
@@ -60,5 +62,23 @@ export const getMovie = (id) => async (dispatch) => {
   dispatch({
     type: GET_MOVIE,
     payload: res.data,
+  });
+};
+export const getSearchMovie = (movie) => async (dispatch) => {
+  const res = await axois.get(
+    `https://api.themoviedb.org/3/search/movie?api_key=930f62e012106d3875f065e01263210e&language=en-US&query=${movie}&page=1&include_adult=false`
+  );
+  dispatch({
+    type: GET_SEARCH_MOVIE,
+    payload: res.data.results,
+  });
+};
+export const getCredits = (id) => async (dispatch) => {
+  const res = await axois.get(
+    `https://api.themoviedb.org/3/movie/${id}/credits?api_key=930f62e012106d3875f065e01263210e`
+  );
+  dispatch({
+    type: GET_CREDITS,
+    payload: res.data.cast,
   });
 };

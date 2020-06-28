@@ -4,6 +4,8 @@ import {
   GET_UPCOMING_MOVIES,
   GET_TOP_RATED_MOVIES,
   GET_MOVIE,
+  GET_SEARCH_MOVIE,
+  GET_CREDITS,
 } from "./types";
 
 const initialState = {
@@ -12,6 +14,8 @@ const initialState = {
   upComing: [],
   topRated: [],
   movie: [],
+  search: [],
+  credits: [],
 };
 
 const movieReducer = (state = initialState, action) => {
@@ -40,6 +44,16 @@ const movieReducer = (state = initialState, action) => {
       return {
         ...state,
         movie: action.payload,
+      };
+    case GET_SEARCH_MOVIE:
+      return {
+        ...state,
+        search: action.payload,
+      };
+    case GET_CREDITS:
+      return {
+        ...state,
+        credits: action.payload,
       };
     default:
       return state;

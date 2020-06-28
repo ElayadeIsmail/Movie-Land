@@ -26,7 +26,7 @@ class HomePage extends Component {
     getPopularMovies();
   }
   render() {
-    const { match, popular, trending, upComing, topRated } = this.props;
+    const { match, popular, trending, upComing, topRated, search } = this.props;
     return (
       <div className='home-page'>
         <Route exact path={`${match.path}`} component={CollectionPage} />
@@ -58,6 +58,13 @@ class HomePage extends Component {
             <MovieCollection title='trending' collection={trending} />
           )}
         />
+        <Route
+          exact
+          path='/search'
+          render={() => (
+            <MovieCollection title='All Results' collection={search} />
+          )}
+        />
         <Route exact path='/movie/:id' component={Movie} />
       </div>
     );
@@ -69,6 +76,7 @@ const mapStateToProps = (state) => ({
   trending: state.movies.trending,
   upComing: state.movies.upComing,
   topRated: state.movies.topRated,
+  search: state.movies.search,
 });
 
 export default connect(mapStateToProps, {
